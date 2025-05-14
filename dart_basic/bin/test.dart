@@ -1,22 +1,14 @@
 void main() async{
   print("install loading...");
-  var count=0;
-  var isCompleted = false;
-
-  install_complete().then((value) {
-    isCompleted = value;
-  });
-
-  while(!isCompleted){
-    await Future.delayed(Duration(seconds: 1));
-    count++;
-    print(count);
+  await for(int value in install_complete()) {
+    print(value);
   }
-
   print('종료');
 }
 
-Future<bool> install_complete() async{
-  await Future.delayed(Duration(seconds: 4));
-  return true;
+Stream<int> install_complete() async*{
+  for(int i=1; i<=5; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    yield i;
+  }
 }
