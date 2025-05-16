@@ -29,46 +29,45 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.list),
-          title: Text('예제'),
-          actions: [Icon(Icons.search), Icon(Icons.favorite)],
-          backgroundColor: Color(0xFFf3edf7),
-        ),
-        /*
-        body: Center(
-          child: Container (
-            width: 100, height: 100,
-            margin: EdgeInsets.all(20), //컨테이너 밖
-            padding: EdgeInsets.fromLTRB(20,10,20,70),  //컨테이너 안
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
-              borderRadius: BorderRadius.all(Radius.circular(20))
-            ),
-            child: Text('본문내용'),
+          appBar: AppBar(
+              title: Text('강남역'),
+              actions: [Icon(Icons.search), Icon(Icons.menu), Icon(Icons.notification_add)]
           ),
-        ),
-        */
-        body: Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            width: double.infinity,
-            color: Colors.amberAccent,
-            child: Text('본문', style:TextStyle(color:Colors.red),),
-            padding: EdgeInsets.all(20)
-          ),
-        ),
-
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          body: Container(
+            padding: EdgeInsets.all(10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.ac_unit),
-                Icon(Icons.account_balance),
-                Icon(Icons.adb)
-              ]
+                Flexible(child: Image.asset('assets/images/meow.jpg', width:150), flex: 4,),
+                SizedBox(width: 15,),
+                Flexible(
+                  child: SizedBox(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: 15,
+                        children: [
+                          Text('고양이 집사 구함', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                          Text('개냥이, 활발한 성격'),
+                          Text('금액은 만나서 결정', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                          SizedBox(
+                            width: 150,
+                            child : Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Icon(Icons.favorite_border),
+                                Text('4')
+                              ],
+                            ),
+
+                          )
+                        ],
+                      )
+                  ),
+                  flex: 6,
+                )
+              ],
+            ),
           )
-        )
       ),
     );
   }

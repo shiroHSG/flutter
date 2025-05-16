@@ -1,30 +1,16 @@
 import 'package:flutter/material.dart';
 /*
   * Scaffold() : 화면은 top, body, bottom으로 나누어줌
+
   * 배치
     - Row() : 위젯들을 가로로 배치
     - Column() : 위젯들을 세로로 배치
  */
-
 void main() {
   runApp(const MyApp());
 }
-//stless, stful 자동완성
-/*
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
-  @override   //build->return 화면에 보여짐
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text('앱제목')), //top
-        body: Text('본문내용'), //body 필수
-        bottomNavigationBar: BottomAppBar(child: Text('하단바'),)// bottom
-      ),
-    );
-  }
-}*/
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -32,23 +18,33 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('예제'), backgroundColor: Color(0xFFf3edf7),
-        ),
-        body: Center(
-            child: Text('본문내용')
-        ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(Icons.ac_unit),
-                Icon(Icons.account_balance),
-                Icon(Icons.adb)
-              ]
-          )
-        )
+        appBar: AppBar(title: Text('앱제목')),  // top
+        body: Text('본문내용'),     // body : 필수
+        bottomNavigationBar:BottomAppBar(child: Text('하단바'))   // bottom,
       ),
     );
   }
 }
+*/
+
+ class MyApp extends StatelessWidget {
+   const MyApp({super.key});
+ 
+   @override
+   Widget build(BuildContext context) {
+     return MaterialApp(
+       home: Scaffold(
+         appBar: AppBar(),
+         body: Column(
+           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           children: [
+             Icon(Icons.ac_unit),
+             Icon(Icons.account_balance),
+             Icon(Icons.adb)
+           ],
+         ),
+       ),
+     );
+   }
+ }
+ 
